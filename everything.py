@@ -132,4 +132,5 @@ while(True):
         print("running: " + str(interval_count))
         time.sleep(time_to_run)
     except IOError:
+        # this should make the software keep running even if the display has issues
         print("something broke - (probably the display) - but we're gonna try again!!!")

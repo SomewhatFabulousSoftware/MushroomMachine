@@ -22,6 +22,8 @@ WATERING_TIME = 15 # in seconds
 MAX_WATER_ATTEMPT = 5
 MEASUREMENT_OFFSET = 2 #time in seconds that it takes the rest of the program to run approx
 NUM_RELAYS = 4
+
+# define some variables we will use
 interval_count = WATER_FREQ
 measurements = []
 
@@ -42,17 +44,6 @@ if((UPDATE_FREQ - MEASUREMENT_OFFSET) - WATERING_TIME < 0):
     print("Cannot run - check configured times")
     exit(1)
 
-
-# write to file
-#with open("Measurements.txt", "w") as f:
-#    f.write("temp: " + str(temp_dirt) + "\nHumidity: " + str(relative_humidity))
-
-
-#with open("Measurements.txt", "r") as f:
-#    for line in f:
-#        split = line.split(": ")
-#        measurements.append(split[1].replace("\n", ""))
-#f.close()
 #loop to run every 30 seconds
 time.sleep(20) # sleep to let i2c init before running
 

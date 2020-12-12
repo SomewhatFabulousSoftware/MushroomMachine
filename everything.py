@@ -84,6 +84,12 @@ while(True):
                         print ("watering failed, please check connections")
                         lcd.lcd_display_string("Water Fail    ", 1)
                         lcd.lcd_display_string("Check Conn    ", 2)
+                        # Disable all relays before shutting down the program
+                        for i in range(1, NUM_RELAYS):
+                            try:
+                                myRelay.set_relay_off(i)
+                            except IOError:
+                                print("Failed to disable relays, check connections and restart the Pi")
                         exit(2)
                     else:
                         print("Watering function failed, retrying (probably)")
